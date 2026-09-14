@@ -1,0 +1,1 @@
+print("HealthInPulse iniciado com sucesso!")
