@@ -1,17 +1,18 @@
 import csv
 import random
 from datetime import datetime, timedelta
+import os
 
 #Definindo as colunas do arquivo CSV
 colunas = ["data_hora" , "temperatura", "frq_cardiaca", "pressao_sistolica", "pressao_diastolica", "oxigenacao", "horas_sono"]
 
 #Indicando o caminho para o arquivo CSV
-caminho_arquivo = "dados/dados_pulseira.csv"
+caminho_arquivo_pulseira = "dados/dados_pulseira.csv"
 
 #Definindo a hora e data atual
 data_atual = datetime.now()
-
-with open(caminho_arquivo, mode='w', newline='') as arquivo_csv:
+os.makedirs(os.path.dirname(caminho_arquivo_pulseira), exist_ok=True)
+with open(caminho_arquivo_pulseira, mode='w', newline='') as arquivo_csv:
     escritor = csv.DictWriter(arquivo_csv, fieldnames=colunas)
     escritor.writeheader()
 
